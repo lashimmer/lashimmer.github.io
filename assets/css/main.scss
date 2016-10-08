@@ -1,27 +1,381 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
-@charset "utf-8";
 
-// Our variables
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+@font-face {
+  font-family: 'Avenir Book';
+  src: url("../fonts/Avenir/Avenir-Book.eot");
+  src: url("../fonts/Avenir/Avenir-Book.eot?#iefix") format('embedded-opentype'),
+  url("../fonts/Avenir/Avenir-Book.woff2") format('woff2'),
+  url("../fonts/Avenir/Avenir-Book.woff") format('woff'),
+  url("../fonts/Avenir/Avenir-Book.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Avenir Heavy';
+  src: url("../fonts/Avenir/Avenir-Heavy.eot");
+  src: url("../fonts/Avenir/Avenir-Heavy.eot?#iefix") format('embedded-opentype'),
+  url("../fonts/Avenir/Avenir-Heavy.woff2") format('woff2'),
+  url("../fonts/Avenir/Avenir-Heavy.woff") format('woff'),
+  url("../fonts/Avenir/Avenir-Heavy.ttf") format('truetype');
+}
+@font-face {
+  font-family: 'Avenir Medium';
+  src: url("../fonts/Avenir/Avenir-Medium.eot");
+  src: url("../fonts/Avenir/Avenir-Medium.eot?#iefix") format('embedded-opentype'),
+  url("../fonts/Avenir/Avenir-Medium.woff2") format('woff2'),
+  url("../fonts/Avenir/Avenir-Medium.woff") format('woff'),
+  url("../fonts/Avenir/Avenir-Medium.ttf") format('truetype');
+}
 
-$spacing-unit:     30px;
+$purple: #998EFB;
+$blue: #92E7F9;
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+$color-body: #565656;
+$color-title: #6B6B80;
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
 
-// Width of the content area
-$content-width:    800px;
 
-$on-palm:          600px;
-$on-laptop:        800px;
+@mixin gradientD2($first, $second) {
+  background: $first;
+  background: -moz-linear-gradient(-75deg,  $first 1%, $second 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(1%,$first), color-stop(100%,$second));
+  background: -webkit-linear-gradient(-75deg,  $first 1%,$second 100%);
+  background: -o-linear-gradient(-75deg,  $first 1%,$second 100%);
+  background: -ms-linear-gradient(-75deg,  $first 1%,$second 100%);
+  background: linear-gradient(135deg, $first 1%, $second 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$first, endColorstr=$second,GradientType=1 );
+}
+
+
+html, body {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: 'Avenir Medium','Helvetica Neue', Helvetica, Arial;
+	font-size: 14px;
+	color: $color-body;
+	text-align: center;
+	* {
+		box-sizing: border-box;
+	}
+}
+
+h1 {
+	font-size: 26px;
+	font-family: 'Avenir Medium';
+	color: $color-title;
+	font-weight: normal;
+}
+h2 {
+	font-size: 22px;
+	font-family: 'Avenir Medium';
+	color: $color-title;
+	font-weight: normal;
+}
+p {
+	font-size: 16px;
+	font-family: 'Avenir Book';
+	color: $color-body;
+}
+
+a, a:hover, a:visited, a:active {
+	text-decoration: none;
+	color: white;
+}
+
+.hero-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	@include gradientD2($purple, $blue);
+	opacity: 0.7;
+}
+
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: url('../img/landing/hero.jpg') center center no-repeat rgba(0,0,0,0.2);
+	background-size: cover;
+}
+
+nav {
+	position: absolute;
+	top: 0;
+	height: 80px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 40px;
+	a.logo {
+		display: block;
+		height: 24px;
+		width: 24px;
+		background: url("../img/logo/icon.svg") center center no-repeat;
+		background-size: contain;
+	}
+	.links {
+		a {
+			color: white;
+		}
+	}
+}
+
+img.logotype {
+	width: 170px;
+	margin-bottom: 100px;
+}
+
+
+
+input, textarea, button, select {
+	outline: 0;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.btn {
+	display: inline-block;
+	cursor: pointer;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	padding: 0 30px;
+	&.btn-outline {
+		height: 40px;
+		line-height: 38px;
+		font-size: 12px;
+		border-radius: 20px;
+		border: 2px solid white;
+	}
+	&.btn-gradient {
+		height: 60px;
+		line-height: 60px;
+		font-size: 14px;
+		border-radius: 30px;
+		margin-top: 40px;
+		@include gradientD2($purple,$blue);
+	}
+}
+input {
+
+	display: block;
+	margin: 0 auto;
+	margin-top: 40px;
+	width: 80%;
+	border: 2px solid #48408F;
+	border-radius: 4px;
+	font-size: 14px;
+	letter-spacing: 3px;
+	padding: 20px;
+	text-transform: uppercase;
+}
+
+.section-main {
+	z-index: 1;
+	position: relative;
+	width: 100%;
+	background: white;
+	margin: 0;
+	padding: 50px 0;
+	margin-top: -1px;
+}
+
+.curve {
+	position: relative;
+	width: 100%;
+	z-index: 1;
+	&.curve-top {
+		margin-top: -100px;
+	}
+	&.curve-bottom {
+		margin-top: -1px;
+	}
+	img {
+		display: block;
+		width: 100%;
+	}
+}
+
+.container {
+	position: relative;
+	width: 80%;
+	max-width: 800px;
+	padding: 50px;
+
+	margin: 0 auto;
+	text-align: center;
+
+	&.container-top {
+		padding-top: 150px;
+	}
+
+	&.container-white {
+		padding-bottom: 100px;
+		border-radius: 4px;
+		box-shadow: 0 0 40px 0 rgba(0,0,0,0.25);
+		background: white;
+	}
+	&.container-bottom {
+		padding-top: 300px;
+		margin-top: -300px;
+	}
+}
+
+.wave {
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+	&.wave-top {
+		top: -60px;
+		left: 0;
+	}
+	&.wave-bottom {
+		bottom: 20px;
+		left: 0;
+	}
+}
+
+.values-container {
+	position: relative;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	z-index: 1;
+	display: flex;
+	align-items: top;
+	justify-content: center;
+	@media only screen and (max-width:900px) {
+		flex-wrap: wrap;
+		flex-direction: column;
+		align-items: center;
+	}
+}
+.value-prop {
+	background: white;
+	text-align: center;
+	margin: 20px;
+	width: 28%;
+	padding: 40px;
+	border-radius: 4px;
+	box-shadow: 0 0 20px 0 rgba(0,0,0,0.15);
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: column;
+	@media only screen and (max-width:1100px) {
+		margin: 10px;
+	}
+	@media only screen and (max-width:900px) {
+		width: 300px;
+		margin-bottom: 30px;
+	}
+	.value-icon {
+		height: 150px;
+		width: 150px;
+		border-radius: 50%;
+		@include gradientD2(#97A4FB, #92D7F9);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0.9;
+		@media only screen and (max-width:900px) {
+			height: 120px;
+			width: 120px;
+		}
+		img {
+			height: 40px;
+		}
+	}
+}
+
+
+.steps-container {
+	width: 100%;
+	margin-top: 100px;
+	position: relative;
+
+	.line {
+		position: absolute;
+		top: 185px; left: 0;
+		background: #BCC4FD;
+		height: 1px;
+		width: 100%;
+		z-index: -1;
+		opacity: 0.8;
+	}
+
+	.steps {
+		overflow-x: auto;
+		white-space: nowrap;
+		padding: 0 50px;
+		.step {
+			position: relative;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			background: white;
+			width: 300px;
+			height: 200px;
+			box-shadow: 0 0 20px 0 rgba(0,0,0,0.2);
+			border-radius: 4px;
+			padding: 30px;
+			padding-left: 70px;
+			white-space: normal;
+			text-align: left;
+			margin: 20px 50px;
+			.num {
+				position: absolute;
+				height: 100px;
+				width: 200px;
+				left: -105px;;
+				top: 50px;
+			}
+
+			@for $i from 1 through 4 {
+				&:nth-child(#{$i}) {
+					.num {
+						background: url("../img/landing/#{$i}.svg") center center no-repeat;
+						background-size: contain;
+					}
+				}
+			}
+			p {
+
+			}
+		}
+	}
+}
+
+footer {
+	z-index: -1;
+	position: relative;
+	margin-top: -60%;
+	height: 100%;
+	width: 100%;
+	background: url("../img/landing/footer.jpg") center bottom no-repeat;
+	background-size: cover;
+	.footer-text {
+		position: absolute;
+		bottom: 20px;
+		width: 100%;
+		.divide {
+			width: 80%;
+			height: 1px;
+			margin: 0 auto;
+			background: rgba(255,255,255,0.6);
+			margin-bottom: 10px;
+		}
+		span {
+			color: white;
+			font-family: "Avenir Book";
+		}
+	}
+}
