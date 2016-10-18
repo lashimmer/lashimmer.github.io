@@ -5,6 +5,7 @@ html, body { height: 100%; width: 100%; padding: 0; margin: 0; font-family: 'Ave
 html *, body * { box-sizing: border-box; }
 
 h1 { font-size: 26px; font-family: 'Avenir Medium'; color: #6B6B80; font-weight: normal; }
+@media only screen and (max-width: 600px) { h1 { font-size: 20px; } }
 
 h2 { font-size: 22px; font-family: 'Avenir Medium'; color: #6B6B80; font-weight: normal; }
 
@@ -27,8 +28,11 @@ input, textarea, button, select { outline: 0; border: 0; padding: 0; margin: 0; 
 .btn { display: inline-block; cursor: pointer; color: white; text-transform: uppercase; letter-spacing: 4px; padding: 0 30px; }
 .btn.btn-outline { height: 40px; line-height: 38px; font-size: 12px; border-radius: 20px; border: 2px solid white; }
 .btn.btn-gradient { height: 60px; line-height: 60px; font-size: 14px; border-radius: 30px; margin-top: 40px; background: #998EFB; background: -moz-linear-gradient(-75deg, #998EFB 1%, #92E7F9 100%); background: -webkit-gradient(linear, left top, right bottom, color-stop(1%, #998EFB), color-stop(100%, #92E7F9)); background: -webkit-linear-gradient(-75deg, #998EFB 1%, #92E7F9 100%); background: -o-linear-gradient(-75deg, #998EFB 1%, #92E7F9 100%); background: -ms-linear-gradient(-75deg, #998EFB 1%, #92E7F9 100%); background: linear-gradient(135deg, #998EFB 1%, #92E7F9 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$first, endColorstr=$second,GradientType=1 ); }
+@media only screen and (max-width: 600px) { .btn.btn-gradient { height: 50px; line-height: 50px; margin-top: 20px; } }
 
-input { display: block; margin: 0 auto; margin-top: 40px; width: 80%; border: 2px solid #48408F; border-radius: 4px; font-size: 14px; letter-spacing: 3px; padding: 20px; text-transform: uppercase; }
+input { display: block; margin: 0 auto; width: 80%; border: 2px solid #48408F; border-radius: 4px; font-size: 14px; letter-spacing: 3px; padding: 20px; text-transform: uppercase; }
+
+input[type="submit"] { margin-top: 50px; width: 40%; border: 0; }
 
 .section-main { z-index: 1; position: relative; width: 100%; background: white; margin: 0; padding: 50px 0; margin-top: -1px; }
 
@@ -40,7 +44,12 @@ input { display: block; margin: 0 auto; margin-top: 40px; width: 80%; border: 2p
 .container { position: relative; width: 80%; max-width: 800px; padding: 50px; margin: 0 auto; text-align: center; }
 .container.container-top { padding-top: 150px; }
 .container.container-white { padding-bottom: 100px; border-radius: 4px; box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.25); background: white; }
+@media only screen and (max-width: 600px) { .container.container-white { width: 95%; padding: 30px 40px; padding-bottom: 170px; } }
 .container.container-bottom { padding-top: 300px; margin-top: -300px; }
+
+.container-form { position: absolute; top: 0; left: 0; height: 100%; width: 100%; overflow: auto; }
+.container-form .container.container-white { margin-top: 50px; margin-bottom: 50px; }
+@media only screen and (max-width: 600px) { .container-form .container.container-white { padding: 20px 0px; } }
 
 .wave { position: absolute; width: 100%; z-index: -1; }
 .wave.wave-top { top: -60px; left: 0; }
@@ -70,3 +79,9 @@ footer { z-index: -1; position: relative; margin-top: -60%; height: 100%; width:
 footer .footer-text { position: absolute; bottom: 20px; width: 100%; }
 footer .footer-text .divide { width: 80%; height: 1px; margin: 0 auto; background: rgba(255, 255, 255, 0.6); margin-bottom: 10px; }
 footer .footer-text span { color: white; font-family: "Avenir Book"; }
+
+#mc_embed_signup_scroll h2 { margin-bottom: 50px; }
+#mc_embed_signup_scroll input { margin-top: 20px; }
+#mc_embed_signup_scroll .mc-field-group { text-align: left; }
+#mc_embed_signup_scroll .mce_inline_error { background-color: none !important; color: #ddd !important; }
+#mc_embed_signup_scroll #mc-embedded-subscribe { margin-top: 50px; }

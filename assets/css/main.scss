@@ -66,6 +66,9 @@ h1 {
 	font-family: 'Avenir Medium';
 	color: $color-title;
 	font-weight: normal;
+	@media only screen and (max-width: 600px) {
+		font-size: 20px;
+	}
 }
 h2 {
 	font-size: 22px;
@@ -162,13 +165,17 @@ input, textarea, button, select {
 		border-radius: 30px;
 		margin-top: 40px;
 		@include gradientD2($purple,$blue);
+    @media only screen and (max-width: 600px) {
+      height: 50px;
+      line-height: 50px;
+      margin-top: 20px;
+    }
 	}
 }
 input {
 
 	display: block;
 	margin: 0 auto;
-	margin-top: 40px;
 	width: 80%;
 	border: 2px solid #48408F;
 	border-radius: 4px;
@@ -176,6 +183,11 @@ input {
 	letter-spacing: 3px;
 	padding: 20px;
 	text-transform: uppercase;
+}
+input[type="submit"] {
+  margin-top: 50px;
+  width: 40%;
+  border: 0;
 }
 
 .section-main {
@@ -222,11 +234,31 @@ input {
 		border-radius: 4px;
 		box-shadow: 0 0 40px 0 rgba(0,0,0,0.25);
 		background: white;
+		@media only screen and (max-width: 600px) {
+			width: 95%;
+			padding: 30px 40px;
+			padding-bottom: 170px;
+		}
 	}
 	&.container-bottom {
 		padding-top: 300px;
 		margin-top: -300px;
 	}
+}
+.container-form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  .container.container-white {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    @media only screen and (max-width: 600px) {
+      padding: 20px 0px;
+    }
+  }
 }
 
 .wave {
@@ -378,4 +410,25 @@ footer {
 			font-family: "Avenir Book";
 		}
 	}
+}
+
+
+#mc_embed_signup_scroll {
+  h2 {
+    margin-bottom: 50px;
+  }
+  input {
+    margin-top: 20px;
+  }
+
+  .mc-field-group {
+    text-align: left;
+  }
+  .mce_inline_error {
+    background-color: none !important;
+    color: #ddd !important;
+  }
+  #mc-embedded-subscribe {
+    margin-top: 50px;
+  }
 }
