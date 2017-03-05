@@ -20,6 +20,9 @@
 
   <body>
     {{content}}
+    {% if jekyll.environment == 'production' %}
+    {% include analytics.html %}
+    {% endif %}
   </body>
 
 </html>
